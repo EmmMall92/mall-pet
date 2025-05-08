@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { exampleFoods } from './data/exampleFoods';
 
-// Αυτόματη εξαγωγή μοναδικών τιμών
 const getUnique = (array, key) => [...new Set(array.map(item => item[key]).filter(Boolean))];
 const getUniqueTags = foods => [...new Set(foods.flatMap(food => food.tags))];
 
@@ -63,6 +62,11 @@ export default function Page() {
         {filteredFoods.map((food, index) => (
           <Card key={index}>
             <CardContent>
+              <img
+                src="https://via.placeholder.com/300x180?text=Pet+Food"
+                alt={food.name}
+                className="w-full h-auto mb-2 rounded"
+              />
               <h3 className="text-lg font-semibold mb-1">{food.name}</h3>
               <p className="text-sm text-muted-foreground">
                 {food.brand} • {food.level}
